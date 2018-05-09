@@ -20,8 +20,8 @@ public class OrbitTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
-        orbit = new Orbit();
-        vehicle = new Vehicle();
+        orbit = new Orbit(1,1);
+        vehicle = new Vehicle( 2,1);
     }
 
     public void tearDown() throws Exception {
@@ -29,9 +29,16 @@ public class OrbitTest extends TestCase {
     }
 
     public void testGetTime() throws Exception {
-        assertEquals( orbit.getMegaMiles() >= 0 , true);
-        assertEquals( orbit.getNumCraters() >= 0 , true);
-        assertEquals( orbit.getTime( vehicle, Weather.RAINY) >= 0, true);
+        assertEquals( true, orbit.getMegaMiles() >= 0 );
+        assertEquals( true, orbit.getNumCraters() >= 0 );
+        assertEquals( true, orbit.getTime(vehicle, Weather.RAINY, 1) >= 0 );
+        assertEquals( true, orbit.getTime(vehicle, Weather.RAINY, 1) >= 0 );
+    }
+
+
+    public void testTrafficSpeedPrevails() throws Exception {
+        float time = orbit.getTime(vehicle, Weather.RAINY, 1);
+        assertEquals( 2.0f, time );
 
     }
 

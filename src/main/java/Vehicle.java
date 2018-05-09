@@ -5,7 +5,6 @@ public class Vehicle {
     private float speed;
     private float craterTime;
 
-    public Vehicle(){}
 
     public Vehicle( float speed, float craterTime ) {
         this.craterTime = craterTime;

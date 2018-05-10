@@ -28,21 +28,14 @@ public class OrbitTest extends TestCase {
         super.tearDown();
     }
 
-    public void testGetTime() throws Exception {
+
+    public void testGetMegaMiles() throws Exception {
         assertEquals( true, orbit.getMegaMiles() >= 0 );
+    }
+
+    public void testGetCraters() throws Exception {
         assertEquals( true, orbit.getNumCraters() >= 0 );
-        assertEquals( true, orbit.getTime(vehicle, Weather.RAINY, 1) >= 0 );
-        assertEquals( true, orbit.getTime(vehicle, Weather.RAINY, 1) >= 0 );
     }
-
-
-    public void testTrafficSpeedPrevails() throws Exception {
-        float time = orbit.getTime(vehicle, Weather.RAINY, 1);
-        assertEquals( 2.0f, time );
-
-    }
-
-
 
     public static Test suite() {
         return new TestSuite(OrbitTest.class);

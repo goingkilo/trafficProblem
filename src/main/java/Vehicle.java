@@ -6,25 +6,29 @@ public class Vehicle {
     private float craterTime;
 
 
-    public Vehicle( float speed, float craterTime ) {
+    public Vehicle( float speed, float craterTime ) throws Exception {
+
+        if( speed < 0)
+            throw new Exception("Speed cannot be negative");
+
+        if( craterTime < 0)
+            throw new Exception("CraterTime cannot be negative");
+
         this.craterTime = craterTime;
         this.speed = speed;
     }
 
-
     public float getCraterTime() {
         return craterTime;
-    }
-
-    public void setCraterTime(float craterTime) {
-        this.craterTime = craterTime;
     }
 
     public float getSpeed() {
         return speed;
     }
 
-    public void setSpeed(float speed) {
-        this.speed = speed;
+    public float getTime( Orbit orbit, Weather weather, float trafficSpeed) {
+        float speed =  getSpeed() <= trafficSpeed ? getSpeed() : trafficSpeed ;
+        return speed * orbit.getMegaMiles() + getCraterTime() * orbit.getNumCraters()  ;
+
     }
 }

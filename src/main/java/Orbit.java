@@ -19,12 +19,6 @@ public class Orbit {
         return numCraters;
     }
 
-    public float getTime( Vehicle vehicle, Weather weather, float trafficSpeed) {
-        float speed = vehicle.getSpeed() <= trafficSpeed ? vehicle.getSpeed() : trafficSpeed ;
-        return speed * getMegaMiles() + vehicle.getCraterTime() * getNumCraters()  ;
-
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

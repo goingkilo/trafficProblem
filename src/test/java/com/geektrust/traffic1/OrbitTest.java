@@ -14,7 +14,7 @@ import junit.framework.TestSuite;
 public class OrbitTest extends TestCase {
 
     Orbit orbit ;
-    Vehicle vehicle;
+    Vehicle car;
 
     public OrbitTest(String name) {
         super(name);
@@ -23,7 +23,7 @@ public class OrbitTest extends TestCase {
     public void setUp() throws Exception {
         super.setUp();
         orbit = new Orbit( "A", 1,1);
-        vehicle = new Car();
+        car = new Vehicle();
     }
 
     public void tearDown() throws Exception {

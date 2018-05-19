@@ -13,9 +13,9 @@ import junit.framework.TestSuite;
  */
 public class Solution2Test extends TestCase {
 
-    Car car;
-    Bike bike ;
-    TukTuk tuktuk ;
+    Vehicle car;
+    Vehicle bike ;
+    Vehicle tuktuk ;
 
     Orbit orbit1 ;
     Orbit orbit2 ;
@@ -33,9 +33,9 @@ public class Solution2Test extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
-        car     = new Car();
-        bike    = new Bike();
-        tuktuk  = new TukTuk();
+        car     = new Vehicle();
+        bike    = new Vehicle();
+        tuktuk  = new Vehicle();
 
         orbit1  = new Orbit( "Orbit1", 18, 20);
         orbit2  = new Orbit( "Orbit2", 20, 10);
@@ -56,13 +56,9 @@ public class Solution2Test extends TestCase {
 
     public void testCase1() throws Exception {
 
-
-
     }
 
     public void testCase2() throws Exception {
-
-
 
     }
 

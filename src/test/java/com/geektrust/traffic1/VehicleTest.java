@@ -4,11 +4,8 @@ import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
-import com.geektrust.traffic1.Bike;
-import com.geektrust.traffic1.Car;
-import com.geektrust.traffic1.Orbit;
-import com.geektrust.traffic1.Vehicle;
-import com.geektrust.traffic1.Weather;
+
+import java.util.Arrays;
 
 /**
  * v1.Vehicle Tester.
@@ -20,14 +17,16 @@ import com.geektrust.traffic1.Weather;
 public class VehicleTest extends TestCase {
 
     Orbit orbit ;
-    Vehicle vehicle;
+    Vehicle car;
 
 
     public void setUp() throws Exception {
         super.setUp();
         orbit = new Orbit( "A",1,1);
         orbit.setTrafficSpeed(1);
-        vehicle = new Car();
+        car = new Vehicle( "Car", 20,3, Arrays.asList(new Weather[]{
+
+        }));
     }
 
     @Before
@@ -40,18 +39,18 @@ public class VehicleTest extends TestCase {
 
     public void testGetSpeed() throws Exception {
 
-        assertEquals( 20f, vehicle.getSpeed() );
+        assertEquals( 20f, car.getSpeed() );
     }
 
     public void testGetCraterTime() throws Exception {
 
-        assertEquals( 3f, vehicle.getCraterTime() );
+        assertEquals( 3f, car.getCraterTime() );
     }
 
     public void testVehicleNotAllowedWeather() throws Exception {
 
          try {
-             orbit.getTimeTaken( new Bike(), Weather.RAINY ) ;
+             new Vehicle("Bike", 0,0, null).timeTaken( new Orbit("",0,0), Weather.RAINY ) ;
              assert false;
          }
          catch(Exception e) {
@@ -62,12 +61,11 @@ public class VehicleTest extends TestCase {
 
     @Test
     public void testGetTime() throws Exception {
-        assertEquals( true, orbit.getTimeTaken(vehicle, Weather.RAINY) >= 0 );
-        assertEquals( true, orbit.getTimeTaken(vehicle, Weather.RAINY) >= 0 );
+        assertEquals( true, car.timeTaken(orbit, Weather.RAINY) >= 0 );
     }
 
     public void testGetTimeWithTraffic() throws Exception {
-        float time = orbit.getTimeTaken(vehicle, Weather.WINDY);
+        float time = car.timeTaken( orbit, Weather.WINDY);
         assertEquals( 63.0f, time );
 
     }

@@ -1,7 +1,5 @@
 package com.geektrust.traffic1;
 
-import com.geektrust.traffic1.exception.VehicleNotAllowedException;
-
 /**
  * Created by kraghunathan on 5/9/18.
  */
@@ -40,18 +38,8 @@ public class Orbit {
     }
 
     public void setTrafficSpeed(float trafficSpeed) {
+
         this.trafficSpeed = trafficSpeed;
-    }
-
-    public float getTimeTaken( Vehicle vehicle, Weather weather) throws VehicleNotAllowedException {
-        if( ! vehicle.allowed(weather))
-            throw new VehicleNotAllowedException( vehicle.getName()  + " is not allowed in " + weather.toString());
-
-        float roadTime =  getMegaMiles() / Math.min(vehicle.getSpeed(), getTrafficSpeed()) * 60
-                +
-                vehicle.getCraterTime() * getCraters() * weather.getMultiplier();
-
-        return roadTime;
     }
 
     @Override

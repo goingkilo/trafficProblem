@@ -1,11 +1,16 @@
 package com.geektrust.traffic1;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by kraghunathan on 5/12/18.
  */
-public class Car extends AVehicle {
+public class Car implements Vehicle {
 
-    public Car() {
+    private static Set<Weather> allowedWeather = new HashSet<Weather>();
+
+    static {
 
         allowedWeather.add(Weather.RAINY);
         allowedWeather.add(Weather.WINDY);

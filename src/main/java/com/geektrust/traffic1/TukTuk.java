@@ -1,11 +1,17 @@
 package com.geektrust.traffic1;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Created by kraghunathan on 5/12/18.
  */
-public class TukTuk extends AVehicle {
+public class TukTuk implements Vehicle {
 
-    public TukTuk() {
+    private static Set<Weather> allowedWeather = new HashSet<Weather>();
+
+    static
+    {
         allowedWeather.add(Weather.RAINY);
         allowedWeather.add(Weather.SUNNY);
     }

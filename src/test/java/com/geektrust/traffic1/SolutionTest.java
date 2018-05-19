@@ -58,22 +58,22 @@ public class SolutionTest extends TestCase {
 
         Weather sunny = Weather.valueOf("SUNNY");
         try {
-            float time1 = orbit1.getTimeTaken( car, sunny);
+            float time1 = orbit1.getTimeTaken(car, sunny);
             assertEquals( 144f, time1);
 
-            time1 = orbit2.getTimeTaken( car, sunny);
+            time1 = orbit2.getTimeTaken(car, sunny);
             assertEquals( 147f, time1);
 
-            time1 = orbit1.getTimeTaken( bike, sunny);
+            time1 = orbit1.getTimeTaken(bike, sunny);
             assertEquals( 144f, time1);
 
-            time1 = orbit2.getTimeTaken( bike, sunny);
+            time1 = orbit2.getTimeTaken(bike, sunny);
             assertEquals( 138f, time1);
 
-            time1 = orbit1.getTimeTaken( tuktuk, sunny);
+            time1 = orbit1.getTimeTaken(tuktuk, sunny);
             assertEquals( 108f, time1);
 
-            time1 = orbit2.getTimeTaken( tuktuk, sunny);
+            time1 = orbit2.getTimeTaken(tuktuk, sunny);
             assertEquals( 129f, time1);
         }
         catch (VehicleNotAllowedException e) {
@@ -91,16 +91,16 @@ public class SolutionTest extends TestCase {
 
         Weather windy = Weather.valueOf("WINDY");
         try {
-            float time1 = orbit1.getTimeTaken( car, windy);
+            float time1 = orbit1.getTimeTaken(car, windy);
             assertEquals( 137.14285f, time1);
 
-            time1 = orbit2.getTimeTaken( car, windy);
+            time1 = orbit2.getTimeTaken(car, windy);
             assertEquals( 90f, time1);
 
-            time1 = orbit1.getTimeTaken( bike, windy);
+            time1 = orbit1.getTimeTaken(bike, windy);
             assertEquals( 148f, time1);
 
-            time1 = orbit2.getTimeTaken( bike, windy);
+            time1 = orbit2.getTimeTaken(bike, windy);
             assertEquals( 140f, time1);
         }
         catch (VehicleNotAllowedException e) {
@@ -109,7 +109,7 @@ public class SolutionTest extends TestCase {
         }
         try {
 
-            float time1 = orbit1.getTimeTaken( tuktuk, windy);
+            float time1 = orbit1.getTimeTaken(tuktuk, windy);
             assert false;
         }
         catch (VehicleNotAllowedException e) {
@@ -118,18 +118,26 @@ public class SolutionTest extends TestCase {
         }
         try {
 
-            float time1 = orbit2.getTimeTaken( tuktuk, windy);
+            float time1 = orbit2.getTimeTaken(tuktuk, windy);
             assert false;
         }
         catch (VehicleNotAllowedException e) {
             System.out.println(e.getMessage());
             assert true;
         }
-
-
     }
 
 
+    public void testSolveForX() {
+        App app = new App();
+
+        String result1 = app.solveForX( Weather.SUNNY, 12, 10);
+        assertEquals( "Vehicle TukTuk on Orbit1", result1);
+
+        String result2 = app.solveForX( Weather.SUNNY, 14, 20);
+        assertEquals( "Vehicle Car on Orbit2", result2);
+
+    }
     public void testSolution() {
 
         float minTime = Float.MAX_VALUE;

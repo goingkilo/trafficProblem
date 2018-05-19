@@ -1,9 +1,11 @@
+package com.geektrust.traffic1;
+
 import junit.framework.Test;
-import junit.framework.TestSuite;
 import junit.framework.TestCase;
+import junit.framework.TestSuite;
 
 /**
- * Orbit Tester.
+ * v1.Orbit Tester.
  *
  * @author <Authors name>
  * @version 1.0
@@ -20,8 +22,8 @@ public class OrbitTest extends TestCase {
 
     public void setUp() throws Exception {
         super.setUp();
-        orbit = new Orbit(1,1);
-        vehicle = new Vehicle( 2,1);
+        orbit = new Orbit( "A", 1,1);
+        vehicle = new Car();
     }
 
     public void tearDown() throws Exception {
@@ -34,7 +36,7 @@ public class OrbitTest extends TestCase {
     }
 
     public void testGetCraters() throws Exception {
-        assertEquals( true, orbit.getNumCraters() >= 0 );
+        assertEquals( true, orbit.getCraters() >= 0 );
     }
 
     public static Test suite() {
